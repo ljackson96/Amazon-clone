@@ -1,6 +1,7 @@
 import "./App.css";
 import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
+import Header from "./Header";
 
 function App() {
   const history = createBrowserHistory();
@@ -16,6 +17,7 @@ function App() {
             <h1>Login Page</h1>
           </Route>
           <Route path="/">
+            <Header />
             <h1>Home Page</h1>
           </Route>
         </Switch>
