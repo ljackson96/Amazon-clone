@@ -3,6 +3,7 @@ import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
 import Header from "./Header";
 import Home from "./Home";
+import Checkout from "./Checkout";
 
 function App() {
   const history = createBrowserHistory();
@@ -13,7 +14,7 @@ function App() {
         <Switch>
           <Route path="/checkout">
             <Header />
-            <h1>Checkout</h1>
+            <Checkout />
           </Route>
           <Route path="/login">
             <h1>Login Page</h1>
