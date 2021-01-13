@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useEffect } from "react";
-import { Router, Route, Switch } from "react-router";
-import { createBrowserHistory } from "history";
+import { Route, Switch } from "react-router";
 import Header from "./Header";
 import Home from "./Home";
 import Checkout from "./Checkout";
@@ -10,8 +9,7 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 
 function App() {
-  const [{ basket }, dispatch] = useStateValue();
-  const history = createBrowserHistory();
+  const [{ user }, dispatch] = useStateValue();
 
   // useEffect
   // Piece of code which runs based on a given condition
@@ -39,24 +37,18 @@ function App() {
       unsubscribe();
     };
   }, []);
+
+  console.log(user);
+
   return (
-    <Router history={history}>
-      <div className="app">
-        <Switch>
-          <Route path="/checkout">
-            <Header />
-            <Checkout />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Header />
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className="app">
+      <Header />
+      <Switch>
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/login" component={Login} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </div>
   );
 }
 

@@ -4,12 +4,16 @@ import "./index.css";
 import App from "./App";
 import { StateProvider } from "./StateProvider";
 import reducer, { initialState } from "./reducer";
+import { Router } from "react-router";
+import history from "./history";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StateProvider initialState={initialState} reducer={reducer}>
-      <App />
-    </StateProvider>
+    <Router history={history}>
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <App />
+      </StateProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

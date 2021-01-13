@@ -8,7 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const login = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     //login logic
 
     auth
@@ -21,7 +21,7 @@ function Login() {
   };
 
   const register = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     //register logic
 
     auth
