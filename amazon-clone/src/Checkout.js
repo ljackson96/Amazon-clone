@@ -16,9 +16,9 @@ function Checkout() {
           />
           <h2 className="checkout_title">Your Shopping Basket</h2>
           {/* Listing all checkout products */}
-          {basket.map((item) => (
+          {basket?.map((item) => (
             <CheckoutProduct
-              item={item.id}
+              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}
