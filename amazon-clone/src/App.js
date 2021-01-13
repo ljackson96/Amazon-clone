@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import Header from "./Header";
 import Home from "./Home";
 import Checkout from "./Checkout";
+import Login from "./Login";
 
 function App() {
   const history = createBrowserHistory();
@@ -17,7 +18,7 @@ function App() {
             <Checkout />
           </Route>
           <Route path="/login">
-            <h1>Login Page</h1>
+            <Login />
           </Route>
           <Route path="/">
             <Header />
