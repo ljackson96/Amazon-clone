@@ -3,8 +3,11 @@ export const initialState = {
   user: null,
 };
 
-const reducer = (state, action) => {
-  console.log(action);
+export const getBasketTotal = (basket) =>
+  basket?.reduce((amount, item) => item.price + amount, 0);
+
+function reducer(state, action) {
+  //   console.log(action);
   switch (action.type) {
     case "ADD_TO_BASKET":
       // code for adding item to basket
@@ -31,6 +34,6 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-};
+}
 
 export default reducer;
