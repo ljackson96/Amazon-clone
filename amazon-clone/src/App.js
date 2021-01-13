@@ -44,9 +44,15 @@ function App() {
     <div className="app">
       <Header />
       <Switch>
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/login" component={Login} />
-        <Route path="/" component={Home} />
+        <Route path="/checkout">
+          <Checkout />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
     </div>
   );
