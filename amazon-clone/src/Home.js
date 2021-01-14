@@ -17,17 +17,20 @@ function Home() {
     },
   };
 
-  //   useEffect(() => {
-  //     axios
-  //       .request(options)
-  //       .then(function (response) {
-  //         //console.log(response.data.products);
-  //         setProducts(response.data.products);
-  //       })
-  //       .catch(function (error) {
-  //         console.error(error);
-  //       });
-  //   });
+  useEffect(() => {
+    if (!products) {
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data.products[0]);
+          setProducts(response.data.products[0]);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+  });
+
   return (
     <div className="home">
       <img
