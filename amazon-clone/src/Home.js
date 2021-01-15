@@ -18,18 +18,33 @@ function Home() {
   };
 
   useEffect(() => {
-    if (!products) {
-      axios
-        .request(options)
-        .then(function (response) {
-          console.log(response.data.products[0]);
-          setProducts(response.data.products[0]);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
-  });
+    axios
+      .request(options)
+      .then(function (response) {
+        // console.log(response.data.products[0]);
+        // setProducts(response.data.products.slice(0, 5));
+        setProducts(response.data.products.slice(0, 5));
+        // productInfo(products);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
+
+  // const productInfo = async (products) => {
+  //   console.log(products);
+
+  //   products.map((product) => {
+  //     console.log(product);
+  //     <Product
+  //       id="123"
+  //       title={product.title}
+  //       price={11.23}
+  //       rating={5}
+  //       image="https://m.media-amazon.com/images/I/81iADdtXixL._AC_UL320_.jpg"
+  //     />;
+  //   });
+  // };
 
   return (
     <div className="home">
@@ -39,10 +54,15 @@ function Home() {
         alt=""
       />
       {/* Product id, title, price, rating, image */}
+
       <div className="home_row">
+        {products.forEach((product) => {
+          console.log(product.title);
+        })}
+
         <Product
           id="123"
-          title="test"
+          title={""}
           price={11.23}
           rating={5}
           image="https://m.media-amazon.com/images/I/81iADdtXixL._AC_UL320_.jpg"
@@ -51,7 +71,7 @@ function Home() {
           id="123"
           title="test"
           price={11.23}
-          rating={5}
+          rating={3}
           image="https://m.media-amazon.com/images/I/81iADdtXixL._AC_UL320_.jpg"
         />
       </div>
